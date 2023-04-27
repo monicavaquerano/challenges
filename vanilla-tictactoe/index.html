@@ -14,9 +14,9 @@
     <main>
         <div class="grid" data-id="grid">
             <!-- Turn indicator -->
-            <div class="turn turquoise" data-id="turn">
-                <i class="fa-solid fa-x"></i>
-                <p>Player 1, you're up!</p>
+            <div class="turn" data-id="turn">
+                <i class="turquoise fa-solid fa-x"></i>
+                <p class="turquoise">Player 1, you're up!</p>
             </div>
             <!-- Dropdown menu -->
             <div class="menu" data-id="menu">
@@ -26,7 +26,7 @@
                 </button>
                 <div class="items border hidden" data-id="menu-items">
                     <button data-id="reset-btn">Reset</button>
-                    <button data-id="new-round-bt">New Round</button>
+                    <button data-id="new-round-btn">New Round</button>
                 </div>
             </div>
             <!-- Game board -->
@@ -55,14 +55,13 @@
         </div>
     </main>
     <footer>
-        <p>
+        <p style="font-size: 12px;">
             Original project by
             <a href="http://twitter.com/medfdev" target="_blank" rel="noopener noreferrer">@megfdev</a>,
             <a href="http://twitter.com/Ivan00sto">@Ivan00Sto</a>, and <a href="http://twitter.com/zg_dev">@zg_dev</a>
         </p>
         <p>
-            Refactored by <a style="color: var(--turquoise);"
-                href="http://twitter.com/monicavaquerano">@monicavaquerano</a>
+            <a style="color: var(--turquoise);" href="http://twitter.com/monicavaquerano">@monicavaquerano</a>
         </p>
     </footer>
     <!-- Modal that opens when the game ends -->

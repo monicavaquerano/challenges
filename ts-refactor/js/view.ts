@@ -1,4 +1,4 @@
-import type Store from "./store";
+import { DerivedGame, DerivedStats } from "./store";
 import { Move, Player } from "./types";
 
 export default class View {
@@ -30,7 +30,7 @@ export default class View {
         });
     };
 
-    render(game: Store["game"], stats: Store["stats"]) {
+    render(game: DerivedGame, stats: DerivedStats) {
         const { playerWithStats, ties } = stats;
         const {
             moves,

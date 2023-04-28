@@ -72,7 +72,7 @@ export default class View {
 
     }
 
-    bindPlayerMoveEvent(handler: EventListener) {
+    bindPlayerMoveEvent(handler: (el: Element) => void) {
         this.#delegate(this.$.grid, '[data-id="square"]', "click", handler);
     }
 

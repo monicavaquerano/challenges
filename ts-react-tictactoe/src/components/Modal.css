@@ -1,0 +1,35 @@
+/* Modal (opens when game finishes) */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-contents {
+    transform: translateY(-80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    max-width: 300px;
+    gap: 20px;
+    background-color: #2a4544;
+    border-radius: 20px;
+    color: white;
+    margin: 10px;
+}
+
+.modal-contents button {
+    background-color: var(--turquoise);
+    padding: 10px;
+    border-radius: 5px;
+    color: #2a4544;
+}

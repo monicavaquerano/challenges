@@ -63,6 +63,7 @@ button:hover {
     grid-template-columns: repeat(3, 80px);
     grid-template-rows: 50px repeat(3, 80px) 60px;
     gap: 5px;
+    justify-content: center;
 }
 
 /* Responsive Design: 

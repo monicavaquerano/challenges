@@ -1,4 +1,7 @@
 # Challenges
 
-* [ts vanilla tictactoe](/ts-vanilla-tictactoe)
-* [ts react tictactoe](/ts-react-tictactoe)
+* [TS React Tictactoe](/ts-react-tictactoe)
+
+* [TS Vanilla Tictactoe](/ts-vanilla-tictactoe)
+
+* [JS Vanilla Tictactoe](/js-vanilla-tictactoe)

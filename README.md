@@ -1,6 +1,6 @@
 # Challenges
 
-Add DOM projects
+Add DOM projects and work on the mail
 
 * [TS React Tictactoe](/ts-react-tictactoe)
 

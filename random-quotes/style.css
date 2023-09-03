@@ -1,0 +1,78 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: url(images/library.jpg) no-repeat center center/cover;
+}
+
+.centered {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Containers */
+.main-container {
+    width: 80vw;
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 500px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.container {
+    width: 80%;
+}
+
+/* Title, quote, author */
+#title {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    width: 100%;
+    font-family: 'Lora', serif;
+}
+
+#author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Button */
+#btn-quote {
+    width: 180px;
+    height: 30px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <title>Color Picker</title>
+</head>
+
+<body>
+    <main class="main-container">
+        <div class="container">
+            <div class="color">
+                <label for="red" id="red-label">Red (R)</label>
+                <input id="red" type="range" name="red" min="0" max="255" value="125" step="1">
+                <p id="red-text"></p>
+            </div>
+            <div class="color">
+                <label for="green" id="green-label">Green (G)</label>
+                <input id="green" type="range" name="green" min="0" max="255" value="125" step="1">
+                <p id="green-text"></p>
+            </div>
+            <div class="color">
+                <label for="blue" id="blue-label">Blue (B)</label>
+                <input id="blue" type="range" name="blue" min="0" max="255" value="125" step="1">
+                <p id="blue-text"></p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

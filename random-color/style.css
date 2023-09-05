@@ -1,0 +1,61 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+    --tiel: #2B807B;
+    --darkGrey: #404040;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--tiel);
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+#container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 250px;
+    width: 80vw;
+    background: rgb(126, 126, 126);
+    background: linear-gradient(0deg, rgba(175, 175, 175, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* Text */
+#color {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--darkGrey);
+}
+
+/* Button */
+#btn-color {
+    font-size: 1rem;
+    color: var(--darkGrey);
+    font-weight: 500;
+    margin: 15px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    user-select: none;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+#btn-color:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

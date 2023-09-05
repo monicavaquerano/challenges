@@ -5,7 +5,7 @@ const players = [
     {
         id: 1,
         name: "Player 1",
-        iconClass: "fa-x", //"fa-solid" ?
+        iconClass: "fa-x",
         colorClass: "turquoise",
     },
     {

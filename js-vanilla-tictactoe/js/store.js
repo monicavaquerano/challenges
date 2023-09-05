@@ -26,13 +26,13 @@ export default class Store extends EventTarget {
                 return {
                     ...player,
                     wins,
-                }
+                };
             }),
 
             ties: state.history.currentRoundGames.filter(
                 (game) => game.status.winner === null
             ).length,
-        }
+        };
     }
 
     get game() {
@@ -55,13 +55,13 @@ export default class Store extends EventTarget {
         let winner = null;
 
         for (const player of this.players) {
-            const selectedSquaresIds = state.currentGameMoves.
-                filter((move) => move.player.id === player.id
-                ).map((move) => move.squareId)
+            const selectedSquaresIds = state.currentGameMoves
+                .filter((move) => move.player.id === player.id)
+                .map((move) => move.squareId)
 
             for (const combo of winningCombos) {
-                if (combo.every(v => selectedSquaresIds.includes(v))) {
-                    winner = player
+                if (combo.every((v) => selectedSquaresIds.includes(v))) {
+                    winner = player;
                 }
             }
         }

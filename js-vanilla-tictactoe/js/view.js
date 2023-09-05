@@ -39,7 +39,7 @@ export default class View {
         this.#clearMoves();
         this.#updateScoreBoard(
             playerWithStats[0].wins,
-            playerWithStats[0].wins,
+            playerWithStats[1].wins,
             ties,
         );
         this.#initializeMoves(moves);

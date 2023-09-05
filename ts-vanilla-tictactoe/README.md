@@ -1,7 +1,7 @@
-# Vanilla Tic Toc
+# TS Vanilla Tic Toc
 
 ## Tech stack
-Tech used: HTML, CSS & JS
+Tech used: HTML, CSS & TS
 
 ## Attribution
 

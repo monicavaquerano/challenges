@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+
+        .editable {
+            display: inline-block;
+            width: 200px;
+            /* Ajusta el ancho según tu diseño */
+            border: 1px solid #ccc;
+            padding: 2px;
+            cursor: text;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="listaTareas">
+        <li>
+            <span class="editable" contenteditable="true">Tarea 1</span>
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </li>
+        <!-- Más elementos li aquí -->
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const listaTareas = document.getElementById("listaTareas");
+
+            listaTareas.addEventListener("click", function (e) {
+
+                if (e.target.classList.contains("editar")) {
+                    const tarea = e.target.parentElement;
+                    const textoTarea = tarea.querySelector(".editable");
+
+                    // Habilita la edición en línea
+                    textoTarea.contentEditable = "true";
+                    textoTarea.focus();
+                }
+            });
+
+
+            // listaTareas.addEventListener("dblclick", function (e) {
+
+            //     if (e.target.classList.contains("editar")) {
+            //         const tarea = e.target.parentElement;
+            //         const textoTarea = tarea.querySelector(".editable");
+
+            //         // Habilita la edición en línea
+            //         textoTarea.contentEditable = "true";
+            //         textoTarea.focus();
+            //     }
+            // });
+
+
+            // Evita saltos de línea al presionar Enter
+            listaTareas.addEventListener("keydown", function (e) {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    const editable = e.target;
+                    editable.blur(); // Quita el enfoque para evitar el salto de línea
+                }
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <title>Ejemplo</title>
+</head>
+
+<body>
+    <ul id="listaTareas">
+        <li>
+            <span class="texto-tarea" contenteditable="false">Tarea 1</span>
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </li>
+        
+</ul>
+
+</body>
+
+</html> -->

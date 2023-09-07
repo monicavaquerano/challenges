@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tasks = document.querySelector('#tasks');
 
     btnTask.disabled = true;
+
     taskInput.onkeyup = () => {
         if (taskInput.value.length > 0) {
             btnTask.disabled = false;

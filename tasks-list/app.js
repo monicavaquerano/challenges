@@ -1,23 +1,3 @@
-// Local Storage
-// const list = []
-
-// if (!localStorage.getItem('list')) {
-//     localStorage.setItem('list', []);
-// }
-
-// function getList() {
-//     let list = localStorage.getItem('list');
-
-//     counter++;
-//     document.querySelector('h1').innerHTML = counter;
-//     localStorage.setItem('counter', counter)
-
-//     if (counter % 10 === 0) {
-//         alert(`Count is now ${counter}`)
-//     }
-// }
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // Elements
     const taskInput = document.querySelector('#task-input');
@@ -35,12 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Events
+    // Load tasks event
+    window.addEventListener('load', loadTasks);
+    // Add tasks events
     btnTask.addEventListener('click', addTask);
     taskInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             addTask();
         }
     });
+    // Save tasks before leaving event
+    window.addEventListener('beforeunload', saveTasks);
+
 
     // Functions
     function addTask() {
@@ -49,24 +35,48 @@ document.addEventListener('DOMContentLoaded', () => {
             newTask.classList.add('task');
 
             let text = document.createElement('p');
+            // Revisar esto 
+            text.classList.add('txt');
+            text.contentEditable = false;
             text.innerText = taskInput.value;
             newTask.appendChild(text);
+
+            // Edit
+            text.addEventListener('dblclick', editTask);
+            text.addEventListener('focusout', (e) => {
+                const task = e.target;
+                task.contentEditable = false;
+                task.classList.remove('editing');
+            });
+            text.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const task = e.target;
+                    task.blur(); // Quita el enfoque para evitar el salto de línea
+                    task.contentEditable = false;
+                    task.classList.remove('editing');
+                }
+            });
 
             let icons = document.createElement('div');
             icons.classList.add('icons');
             newTask.appendChild(icons);
 
             let done = document.createElement('i');
-            done.classList.add('bi', 'bi-check-square-fill', 'i-done');
+            done.classList.add('bi', 'bi-check-square-fill', 'i-done', 'done');
+            // Done
             done.addEventListener('click', completeTask)
 
             let eliminate = document.createElement('i');
-            eliminate.classList.add('bi', 'bi-trash3-fill', 'i-eliminate');
+            eliminate.classList.add('bi', 'bi-trash3-fill', 'i-eliminate', 'eliminate');
+            // Eliminate
             eliminate.addEventListener('click', eliminateTask);
 
             icons.append(done, eliminate);
 
             tasks.appendChild(newTask);
+
+            saveTasks()
 
             taskInput.value = '';
             btnTask.disabled = true;
@@ -86,31 +96,24 @@ document.addEventListener('DOMContentLoaded', () => {
         task.remove();
     }
 
-    /* ToDo: Editar Tarea */
     function editTask(e) {
-        let task = e.target.parentNode.parentNode;
+        let task = e.target;
+        task.classList.add('editing');
+        task.contentEditable = true;
+        task.focus()
     }
 
-    /* 
-    document.addEventListener("DOMContentLoaded", function () {
-      const listaTareas = document.getElementById("listaTareas");
-      listaTareas.addEventListener("click", function (e) {
-        if (e.target.classList.contains("editar")) {
-          const tarea = e.target.parentElement;
-          const textoTarea = tarea.firstChild.textContent.trim();
-          const nuevoTexto = prompt("Editar tarea:", textoTarea);
-    
-          if (nuevoTexto !== null && nuevoTexto !== "") {
-            tarea.firstChild.textContent = nuevoTexto;
-          }
+    function loadTasks() {
+        const savedTasks = localStorage.getItem('savedTaskList');
+        if (savedTasks) {
+            const taskList = document.getElementById('tasks');
+            taskList.innerHTML = savedTasks;
+            // console.log(taskList)
         }
-      });
-    });
-    
-    */
+    }
 
-
-
-
-
+    function saveTasks() {
+        const taskList = document.getElementById('tasks').innerHTML;
+        localStorage.setItem('savedTaskList', taskList);
+    }
 });

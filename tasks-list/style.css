@@ -147,8 +147,19 @@ body {
 .task p {
     max-width: 80%;
     inline-size: 350px;
-    overflow-wrap: break-word;
+    word-wrap: break-word;
+    outline: 0;
+    cursor: default;
 }
+
+.editing {
+    color: var(--red-crayola);
+
+    opacity: 0.7;
+    outline: 0;
+    user-select: text;
+}
+
 
 /* Icons */
 i {

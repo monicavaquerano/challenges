@@ -1,119 +1,82 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Elements
-    const taskInput = document.querySelector('#task-input');
-    const btnTask = document.querySelector('#btn-task');
-    const tasks = document.querySelector('#tasks');
 
-    btnTask.disabled = true;
+// Elements Date
+const dateDay = document.querySelector('#date-day');
+const dateMonth = document.querySelector('#date-month');
+const dateYear = document.querySelector('#date-year');
+const dateText = document.querySelector('#date-text');
 
-    taskInput.onkeyup = () => {
-        if (taskInput.value.length > 0) {
-            btnTask.disabled = false;
-        } else {
-            btnTask.disabled = true;
-        }
-    }
+const dateHours = document.querySelector('#date-hours');
+const dateMinutes = document.querySelector('#date-minutes');
 
-    // Events
-    // Load tasks event
-    window.addEventListener('load', loadTasks);
-    // Add tasks events
-    btnTask.addEventListener('click', addTask);
-    taskInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            addTask();
-        }
+// Task Container
+const tasksContainer = document.querySelector('#tasks');
+
+// Functions
+const setDate = () => {
+    const date = new Date();
+    dateDay.textContent = date.toLocaleString('en-US', { day: 'numeric' });
+    dateMonth.textContent = date.toLocaleString('en-US', { month: 'short' });
+    dateYear.textContent = date.toLocaleString('en-US', { year: 'numeric' })
+    dateText.textContent = date.toLocaleString('en-US', { weekday: 'long' })
+    dateHours.textContent = date.toLocaleString('en-US', { hour: '2-digit' })
+    dateMinutes.textContent = date.toLocaleString('en-US', { minute: '2-digit' })
+}
+
+const addNewTask = event => {
+    event.preventDefault();
+    const { value } = event.target.taskInput
+    if (!value) return;
+    const task = document.createElement('div')
+    task.classList.add('task', 'roundBorder');
+    // task.addEventListener('click', changeTaskState)
+
+    const taskText = document.createElement('p')
+    taskText.textContent = value;
+    task.appendChild(taskText)
+
+    let icons = document.createElement('div');
+    icons.classList.add('icons');
+    task.appendChild(icons);
+
+    let done = document.createElement('i');
+    done.classList.add('bi', 'bi-check-square-fill', 'i-done');
+    // Done
+    done.addEventListener('click', changeTaskState)
+
+    let eliminate = document.createElement('i');
+    eliminate.classList.add('bi', 'bi-trash3-fill', 'i-eliminate');
+    // Eliminate
+    eliminate.addEventListener('click', eliminateTask)
+
+    icons.append(done, eliminate);
+
+    tasksContainer.prepend(task);
+
+    event.target.reset();
+}
+
+
+const changeTaskState = event => {
+    event.target.parentNode.parentNode.classList.toggle('done');
+}
+
+const eliminateTask = event => {
+    event.target.parentNode.parentNode.classList.toggle('eliminate');
+}
+
+const order = () => {
+    const done = [];
+    const toDo = [];
+    tasksContainer.childNodes.forEach(el => {
+        el.classList.contains('done') ? done.push(el) : toDo.push(el);
     });
-    // Save tasks before leaving event
-    window.addEventListener('beforeunload', saveTasks);
+    return [...toDo, ...done];
+}
 
+const renderOrderedTasks = () => {
+    order().forEach(el => tasksContainer.appendChild(el));
+}
 
-    // Functions
-    function addTask() {
-        if (taskInput.value) {
-            let newTask = document.createElement('div');
-            newTask.classList.add('task');
-
-            let text = document.createElement('p');
-            // Revisar esto 
-            text.classList.add('txt');
-            text.contentEditable = false;
-            text.innerText = taskInput.value;
-            newTask.appendChild(text);
-
-            // Edit
-            text.addEventListener('dblclick', editTask);
-            text.addEventListener('focusout', (e) => {
-                const task = e.target;
-                task.contentEditable = false;
-                task.classList.remove('editing');
-            });
-            text.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    const task = e.target;
-                    task.blur(); // Quita el enfoque para evitar el salto de línea
-                    task.contentEditable = false;
-                    task.classList.remove('editing');
-                }
-            });
-
-            let icons = document.createElement('div');
-            icons.classList.add('icons');
-            newTask.appendChild(icons);
-
-            let done = document.createElement('i');
-            done.classList.add('bi', 'bi-check-square-fill', 'i-done', 'done');
-            // Done
-            done.addEventListener('click', completeTask)
-
-            let eliminate = document.createElement('i');
-            eliminate.classList.add('bi', 'bi-trash3-fill', 'i-eliminate', 'eliminate');
-            // Eliminate
-            eliminate.addEventListener('click', eliminateTask);
-
-            icons.append(done, eliminate);
-
-            tasks.appendChild(newTask);
-
-            saveTasks()
-
-            taskInput.value = '';
-            btnTask.disabled = true;
-
-        } else {
-            alert('Prompt a task.')
-        }
-    }
-
-    function completeTask(e) {
-        let task = e.target.parentNode.parentNode;
-        task.classList.toggle('done');
-    }
-
-    function eliminateTask(e) {
-        let task = e.target.parentNode.parentNode;
-        task.remove();
-    }
-
-    function editTask(e) {
-        let task = e.target;
-        task.classList.add('editing');
-        task.contentEditable = true;
-        task.focus()
-    }
-
-    function loadTasks() {
-        const savedTasks = localStorage.getItem('savedTaskList');
-        if (savedTasks) {
-            const taskList = document.getElementById('tasks');
-            taskList.innerHTML = savedTasks;
-            // console.log(taskList)
-        }
-    }
-
-    function saveTasks() {
-        const taskList = document.getElementById('tasks').innerHTML;
-        localStorage.setItem('savedTaskList', taskList);
-    }
-});
+// Events
+setDate();
+window.setInterval(setDate, 1000);

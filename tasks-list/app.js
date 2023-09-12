@@ -32,10 +32,17 @@ const addNewTask = event => {
 
     const taskText = document.createElement('p')
     taskText.textContent = value;
+
+    // Edit
+    taskText.addEventListener('dblclick', editTask);
+    taskText.addEventListener('focusout', focusOut);
+    taskText.addEventListener('keydown', skipJump);
+
     task.appendChild(taskText)
 
     let icons = document.createElement('div');
     icons.classList.add('icons');
+
     task.appendChild(icons);
 
     let done = document.createElement('i');
@@ -55,6 +62,31 @@ const addNewTask = event => {
     event.target.reset();
 }
 
+const editTask = event => {
+    if (!event.target.parentNode.classList.contains('done')) {
+        const task = event.target;
+        task.classList.add('editing');
+        task.contentEditable = true;
+        task.focus()
+    }
+
+}
+
+const focusOut = event => {
+    const task = event.target;
+    task.contentEditable = false;
+    task.classList.remove('editing');
+}
+
+const skipJump = (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const task = event.target;
+        task.blur();
+        task.contentEditable = false;
+        task.classList.remove('editing');
+    }
+}
 
 const changeTaskState = event => {
     event.target.parentNode.parentNode.classList.toggle('done');

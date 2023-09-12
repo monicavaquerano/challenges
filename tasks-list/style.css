@@ -42,6 +42,27 @@ body {
     border-radius: 5px;
 }
 
+/* Scrollbar */
+/* Width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /* Title */
 #title {
     color: black;
@@ -143,14 +164,26 @@ input:focus {
 }
 
 .task {
-    background-color: var(--primary);
-    color: var(--light);
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    width: 100%;
     padding: 15px;
     margin-top: 15px;
+    min-height: 50px;
+
+    background-color: var(--primary);
+    color: var(--light);
     cursor: pointer;
+}
+
+.task p {
+    max-width: 80%;
+    inline-size: 350px;
+    word-wrap: break-word;
+    outline: 0;
+    cursor: default;
 }
 
 .i-done {
@@ -166,4 +199,5 @@ input:focus {
     background-color: var(--disabled);
     text-decoration: line-through;
     color: var(--dark);
+    user-select: none;
 }

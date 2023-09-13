@@ -6,6 +6,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+*:first-letter {
+    text-transform: capitalize;
+}
 
 :root {
     /* --antique-white: #FBEDDA;
@@ -16,8 +19,14 @@
     --red-crayola: #EA1744;
     --black-bean: #390511; */
 
-    /* --primary: #A5C882; */
-    /* --secondary: #D33F49; */
+    /* Original: */
+    /* --primary: #A5C882;
+    --secondary: #D33F49;
+    --light: #fff;
+    --dark: #000;
+    --disabled: #e7e7e7; */
+
+    /* Otro */
     --primary: #A5C882;
     --secondary: #D33F49;
     --light: #fff;
@@ -32,10 +41,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-*:first-letter {
-    text-transform: capitalize;
+    /* background: rgb(239, 39, 27);
+    background: linear-gradient(0deg, rgba(239, 39, 27, 1) 0%, rgba(226, 132, 19, 1) 100%); */
 }
 
 .roundBorder {
@@ -69,6 +77,7 @@ body {
     /* text-shadow: black 0px 1px 3px, black 0px 1px 2px; */
 }
 
+/* Main Container */
 .list {
     margin: 25px auto;
     padding: 25px;
@@ -79,6 +88,7 @@ body {
     background-color: var(--light);
 }
 
+/* Date */
 .date {
     display: flex;
     align-items: center;
@@ -96,13 +106,13 @@ body {
     align-items: center;
 }
 
-#date-text {
-    margin-bottom: 5px;
-}
-
 .hour {
     display: flex;
     gap: 5px;
+}
+
+#date-text {
+    margin-bottom: 5px;
 }
 
 #date-day {
@@ -127,6 +137,7 @@ body {
     font-size: 18px;
 }
 
+/* Input */
 form {
     margin: 20px 0;
     display: grid;
@@ -154,13 +165,28 @@ input:focus {
 }
 
 .addTaskBtn {
-    background-color: var(--disabled);
-    color: var(--dark)
+    background-color: var(--primary);
+    color: var(--light)
 }
 
 .orderBtn {
     background-color: var(--secondary);
-    color: var(--light)
+    color: var(--disabled)
+}
+
+.addTaskBtn:hover,
+.orderBtn:hover {
+    opacity: 0.9;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+    transition: all ease-in-out 0.2s;
+}
+
+/* Tasks Container */
+#tasks {
+    width: 100%;
+    max-height: 480px;
+    margin: 10px 0;
+    overflow-y: auto;
 }
 
 .task {
@@ -195,9 +221,22 @@ input:focus {
     color: var(--secondary);
 }
 
+.i-done:hover,
+.i-eliminate:hover {
+    text-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+    transition: all ease-in-out 0.2s;
+}
+
 .done {
     background-color: var(--disabled);
     text-decoration: line-through;
     color: var(--dark);
     user-select: none;
+}
+
+.editing {
+    color: var(--secondary);
+    opacity: 0.7;
+    outline: 0;
+    user-select: text;
 }

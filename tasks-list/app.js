@@ -1,3 +1,6 @@
+// Storage
+let LIST;
+let id;
 
 // Elements Date
 const dateDay = document.querySelector('#date-day');
@@ -10,6 +13,14 @@ const dateMinutes = document.querySelector('#date-minutes');
 
 // Task Container
 const tasksContainer = document.querySelector('#tasks');
+
+// Tasks
+
+
+// Buttons
+const addTaskBtn = document.querySelector("#btn-task");
+
+
 
 // Functions
 const setDate = () => {
@@ -27,13 +38,17 @@ const addNewTask = event => {
     const { value } = event.target.taskInput
     if (!value) return;
     const task = document.createElement('div')
+    task.setAttribute('id', id);
+
+    id++;
+
     task.classList.add('task', 'roundBorder');
     // task.addEventListener('click', changeTaskState)
 
     const taskText = document.createElement('p')
     taskText.textContent = value;
 
-    // Edit
+    // Edit (Ver como sacar esto de acá)
     taskText.addEventListener('dblclick', editTask);
     taskText.addEventListener('focusout', focusOut);
     taskText.addEventListener('keydown', skipJump);
@@ -60,6 +75,11 @@ const addNewTask = event => {
     tasksContainer.prepend(task);
 
     event.target.reset();
+    // LIST.push({
+    //     task: taskText.textContent,
+    //     id: id,
+    // });
+    // console.log(LIST);
 }
 
 const editTask = event => {
@@ -69,7 +89,6 @@ const editTask = event => {
         task.contentEditable = true;
         task.focus()
     }
-
 }
 
 const focusOut = event => {
@@ -93,7 +112,8 @@ const changeTaskState = event => {
 }
 
 const eliminateTask = event => {
-    event.target.parentNode.parentNode.classList.toggle('eliminate');
+    let task = event.target.parentNode.parentNode;
+    task.remove();
 }
 
 const order = () => {
@@ -112,3 +132,6 @@ const renderOrderedTasks = () => {
 // Events
 setDate();
 window.setInterval(setDate, 1000);
+addTaskBtn.addEventListener('click', () => {
+    console.log("moco");
+});

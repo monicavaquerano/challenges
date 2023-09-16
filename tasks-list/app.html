@@ -32,11 +32,11 @@
                     </div>
                 </div>
             </div>
-            <form class="container" onsubmit="addNewTask(event)">
+            <form class="container">
                 <input type="text" class="roundBorder" name="taskInput" id="taskInput" placeholder="New Task"
                     autocomplete="off">
                 <button id="btn-task" class="addTaskBtn roundBorder" type="submit">Add Task</button>
-                <button type="button" class="orderBtn roundBorder" onclick="renderOrderedTasks()">Order</button>
+                <button id="btn-order" class="orderBtn roundBorder" type="button">Order</button>
             </form>
             <div id="tasks"></div>
         </div>

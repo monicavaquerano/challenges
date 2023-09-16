@@ -229,9 +229,12 @@ input:focus {
 
 .done {
     background-color: var(--disabled);
-    text-decoration: line-through;
     color: var(--dark);
     user-select: none;
+}
+
+.done p {
+    text-decoration: line-through;
 }
 
 .editing {

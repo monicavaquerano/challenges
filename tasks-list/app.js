@@ -44,51 +44,38 @@ const addNewTask = (id, task, done, eliminated) => {
 }
 
 const changeTaskState = element => {
-    // console.log(element.parentNode.parentNode.classList)
     element.parentNode.parentNode.classList.toggle('done');
     LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
 const eliminateTask = element => {
-    // console.log(element.parentNode.parentNode);
     element.parentNode.parentNode.remove();
-
     LIST[element.id].eliminated = true;
 }
 
 const editTask = element => {
     if (!element.parentNode.classList.contains('done')) {
-        const task = element;
-        task.classList.add('editing');
-        task.contentEditable = true;
-        task.focus()
+        element.classList.add('editing');
+        element.contentEditable = true;
+        element.focus()
     }
 }
 
 const focusOut = element => {
-    const task = element;
-    if (!task.innerText == '') {
-        task.contentEditable = false;
-        task.classList.remove('editing');
-
-        // console.log(`Con focus out: ${task.innerText}`);
-
-        LIST[task.id].task = task.innerText;
-
+    if (!element.innerText == '') {
+        element.contentEditable = false;
+        element.classList.remove('editing');
+        LIST[element.id].task = element.innerText;
     } else {
-        task.innerText = "It can't be an empty task"
+        element.innerText = "It can't be an empty task"
         window.alert("It can't be an empty task");
     }
 }
 
 const skipJump = element => {
-    const task = element;
-    task.blur();
-    task.contentEditable = false;
-    task.classList.remove('editing');
-
-    // console.log(`Con enter: ${LIST[element.id].task}`);
-
+    element.blur();
+    element.contentEditable = false;
+    element.classList.remove('editing');
 }
 
 const order = () => {
@@ -112,7 +99,6 @@ window.setInterval(setDate, 1000);
 addTaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const task = document.querySelector('input');
-    console.log(task.value)
     if (task.value) {
         addNewTask(id, task.value, false, false);
         LIST.push({
@@ -128,10 +114,8 @@ addTaskForm.addEventListener('submit', (event) => {
 });
 
 orderBtn.addEventListener('click', () => {
-    console.log("ordenando...");
     order();
     renderOrderedTasks();
-    console.log("ya ordene")
 })
 
 tasksContainer.addEventListener('click', (event) => {
@@ -141,16 +125,12 @@ tasksContainer.addEventListener('click', (event) => {
     if (elementData == 'done') {
         changeTaskState(element);
     }
-
     else if (elementData == 'eliminated') {
         eliminateTask(element);
     }
-
     else if (elementData == 'editable') {
-        // console.log("Me editan!!!");
         editTask(element);
     }
-
     localStorage.setItem('toDoList', JSON.stringify(LIST));
 });
 
@@ -159,7 +139,6 @@ tasksContainer.addEventListener('focusout', (event) => {
     const elementData = element.attributes.data.value;
 
     if (elementData == 'editable') {
-        // console.log("Me editaron con focusout!!!");
         focusOut(element);
     }
     localStorage.setItem('toDoList', JSON.stringify(LIST));
@@ -171,10 +150,8 @@ tasksContainer.addEventListener('keydown', (event) => {
         const elementData = element.attributes.data.value;
 
         if (elementData == 'editable') {
-            // console.log("Presionaron enter!!!");
             skipJump(element);
         }
-
         localStorage.setItem('toDoList', JSON.stringify(LIST));
     }
 });

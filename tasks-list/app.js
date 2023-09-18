@@ -9,7 +9,6 @@ const dateYear = document.querySelector('#date-year');
 const dateText = document.querySelector('#date-text');
 
 const dateHours = document.querySelector('#date-hours');
-const dateMinutes = document.querySelector('#date-minutes');
 
 const addTaskForm = document.querySelector('form');
 const orderBtn = document.querySelector("#btn-order");
@@ -26,8 +25,7 @@ const setDate = () => {
     dateMonth.textContent = date.toLocaleString('en-US', { month: 'short' });
     dateYear.textContent = date.toLocaleString('en-US', { year: 'numeric' })
     dateText.textContent = date.toLocaleString('en-US', { weekday: 'long' })
-    dateHours.textContent = date.toLocaleString('en-US', { hour: '2-digit' })
-    dateMinutes.textContent = date.toLocaleString('en-US', { minute: '2-digit' })
+    dateHours.textContent = date.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' })
 }
 
 const addNewTask = (id, task, done, eliminated) => {

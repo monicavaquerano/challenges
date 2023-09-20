@@ -1,13 +1,11 @@
 # TASK LIST
 
 ## Description:
-#### [Live version](https://monicavaquerano.github.io/challenges/tasks-list/app.html)
+
 Task List is a JavaScript-based program that allows users to quickly and easily make a To-Do list. It counts with the date and time, and it is also possible to edit your tasks and/or delete them. It uses the local storage in your computer so it's also possible to save your list for later.
+#### [Live version](https://monicavaquerano.github.io/challenges/tasks-list/app.html)
+![Task List image](https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/task-list.png)
 
-![Task List image]([https://picsum.photos/800/600](https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/task-list.png))
-
-<img width="" alt="Task List image" src="https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/task-list.png">
-images/task-list.png
 ## Tech stack
 Tech used: HTML, CSS & JS
 

@@ -20,4 +20,4 @@
 => [Live Version](https://monicavaquerano.github.io/challenges/chronometer/index.html)
 
 * [Tasks List](/tasks-list) 
-=> [Live Version](https://monicavaquerano.github.io/challenges/tasks-list/index.html)
+=> [Live Version](https://monicavaquerano.github.io/challenges/tasks-list/app.html)

@@ -12,40 +12,38 @@
 </head>
 
 <body>
-    <main class="main-container">
 
-        <div class="list roundBorder">
-            <div class="date">
-                <div class="date-left">
-                    <div id="date-day"></div>
-                    <div>
-                        <div id="date-month"></div>
-                        <div id="date-year"></div>
-                    </div>
-                </div>
-                <h1 id="title">My Tasks</h1>
-                <div class="date-right">
-                    <div id="date-text"></div>
-                    <div class="hour">
-                        <div id="date-hours"></div>
-                    </div>
+    <div class="list roundBorder">
+        <div class="date">
+            <div class="date-left">
+                <div id="date-day"></div>
+                <div>
+                    <div id="date-month"></div>
+                    <div id="date-year"></div>
                 </div>
             </div>
-            <form class="container">
-                <input type="text" class="roundBorder" name="taskInput" id="taskInput" placeholder="New Task"
-                    autocomplete="off">
-                <button id="btn-task" class="addTaskBtn roundBorder" type="submit">
-                    <i id="plus" class="bi bi-plus-lg"></i>
-                    <span>Add Task</span>
-                </button>
-                <button id="btn-order" class="orderBtn roundBorder" type="button">
-                    <i class="bi bi-arrow-down-up"></i>
-                    <span>Order</span>
-                </button>
-            </form>
-            <div id="tasks"></div>
+            <h1 id="title">My Tasks</h1>
+            <div class="date-right">
+                <div id="date-text"></div>
+                <div class="hour">
+                    <div id="date-hours"></div>
+                </div>
+            </div>
         </div>
-    </main>
+        <form class="container">
+            <input type="text" class="roundBorder" name="taskInput" id="taskInput" placeholder="New Task"
+                autocomplete="off">
+            <button id="btn-task" class="addTaskBtn roundBorder" type="submit">
+                <i id="plus" class="bi bi-plus-lg"></i>
+                <span>Add Task</span>
+            </button>
+            <button id="btn-order" class="orderBtn roundBorder" type="button">
+                <i class="bi bi-arrow-down-up"></i>
+                <span>Order</span>
+            </button>
+        </form>
+        <div id="tasks"></div>
+    </div>
     <script src="app.js" defer></script>
 </body>
 

@@ -11,14 +11,7 @@
 }
 
 :root {
-    /* Original: */
-    /* --primary: #A5C882;
-    --secondary: #D33F49;
-    --light: #fff;
-    --dark: #000;
-    --disabled: #e7e7e7; */
-
-    /* Otro */
+    /* Palette */
     --primary: #264653;
     --secondary: #2A9D8F;
     --terciary: #E9C46A;
@@ -171,7 +164,8 @@ input:focus {
 /* Tasks Container */
 #tasks {
     width: 100%;
-    max-height: 500px;
+    /* max-height: 500px; */
+    max-height: 80%;
     margin: 10px 0;
     overflow-y: auto;
 }
@@ -245,20 +239,44 @@ input:focus {
 }
 
 /* Media Queries */
-/* @media (max-height: 400px) {
+/* 
+Mobile -> 576px
+Tablet -> 768px
+Laptop -> 992px
+Desktop -> 1200px
+*/
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) and (orientation : landscape) {
     .list {
+        background-color: orange;
         height: 100vh;
+        width: 100vw;
+    }
+
+    div.list.roundBorder {
+        border-radius: 0px;
     }
 
     #tasks {
-        max-height: 175px;
+        height: 50%;
     }
-} */
+}
 
-@media only screen and (max-width: 667px) {
+@media (max-width: 576px) and (orientation : portrait) {
     .list {
+        background-color: red;
         height: 100vh;
+        width: 100vw;
     }
+
+    div.list.roundBorder {
+        border-radius: 0px;
+    }
+
+    /* #tasks {
+        height: 80%;
+    } */
 
     #date-day {
         font-size: 50px;
@@ -274,15 +292,6 @@ input:focus {
         display: none;
     }
 
-    /* #tasks {
-        max-height: 475px;
-    } */
-
-    .addTaskBtn,
-    .orderBtn {
-        width: 28px;
-    }
-
     #btn-task span,
     #btn-order span {
         display: none;
@@ -292,5 +301,32 @@ input:focus {
     #btn-order i {
         font-size: 16px;
         font-weight: bold;
+    }
+}
+
+@media (min-width: 576px) and (orientation : landscape) {
+    .list {
+        background-color: green;
+        /* height: 100vh;
+        width: 100vw; */
+    }
+
+    /* div.list.roundBorder {
+        border-radius: 0px;
+    } */
+
+
+    #tasks {
+        max-height: 75%;
+    }
+}
+
+@media (min-width: 576px) and (orientation : portrait) {
+    .list {
+        background-color: pink;
+    }
+
+    #tasks {
+        max-height: 75%;
     }
 }

@@ -238,12 +238,6 @@ input:focus {
 }
 
 /* Media Queries */
-/* 
-Mobile -> 576px
-Tablet -> 768px
-Laptop -> 992px
-Desktop -> 1200px
-*/
 
 /* Mobile */
 @media screen and (max-width:767px) and (orientation:portrait) {

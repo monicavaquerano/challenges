@@ -24,7 +24,7 @@ onValue(shoppingListInDB, (snapshot) => {
             appendItemToList(currentItem);
         }
     } else {
-        list.innerHTML = '<div class="container"><strong>No items here... yet.</strong></div>';
+        list.innerHTML = '<div class="container" style="margin-top: 25px;"><strong>No items here... yet.</strong></div>';
     }
 });
 

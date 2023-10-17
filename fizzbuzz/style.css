@@ -4,3 +4,46 @@
     box-sizing: border-box;
     scrollbar-gutter: auto;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header h1 {
+    color: red;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 10px;
+    padding: 20px;
+    background-color: aqua;
+}
+
+input[type=number] {
+    margin: 10px auto;
+    padding: 5px;
+    border: none;
+}
+
+input[type=submit] {
+    background-color: yellow;
+    padding: 10px;
+    border: none;
+}
+
+input:hover {
+    background-color: red;
+}
+
+#fizzbuzz {
+    border: 5px solid black;
+}

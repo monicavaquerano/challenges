@@ -5,6 +5,21 @@
     scrollbar-gutter: auto;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    /* for vertical scrollbars */
+    height: 12px;
+    /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -23,7 +38,7 @@ header h1 {
     align-items: center;
     justify-content: center;
 
-    margin: 10px;
+    max-width: 320px;
     padding: 20px;
     background-color: aqua;
 }
@@ -45,5 +60,12 @@ input:hover {
 }
 
 #fizzbuzz {
-    border: 5px solid black;
+    border: 3px solid black;
+    text-align: center;
+    padding: 15px;
+
+    height: 50vh;
+    width: 80vw;
+    max-width: 320px;
+    overflow-y: auto;
 }

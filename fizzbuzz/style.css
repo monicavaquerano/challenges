@@ -123,3 +123,13 @@ input[type=submit]:hover {
 .buzz {
     color: var(--buzz);
 }
+
+/* Mobile */
+@media screen and (max-width:767px) and (orientation:landscape) {
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

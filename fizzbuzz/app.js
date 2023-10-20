@@ -8,7 +8,7 @@ submitNumberBtn.addEventListener("click", () => {
     console.log(numberInput.value);
     clearTextContainer();
     if (numberInput.value == "") {
-        textContainer.innerHTML = '<p><strong>Enter a number</strong></p>'
+        textContainer.innerHTML = '<p>Enter a number</p>'
     } else {
         createNumberList(numberInput.value);
     }
@@ -42,19 +42,15 @@ function clearTextContainer() {
     textContainer.innerHTML = '';
 }
 
-
 function fizzbuzz(num) {
     if (num == 0) {
         return 0;
     } if (num % 3 == 0 && num % 5 == 0) {
-        // return "Fizzbuzz";
-        return '<span style="color: #0000ff">Fizzbuzz</span>';
+        return '<span class="fizz-buzz">FizzBuzz</span>';
     } if (num % 5 == 0) {
-        // return "Buzz";
-        return '<span style="color: #00ff00">Buzz</span>';
+        return '<span class="buzz">Buzz</span>';
     } if (num % 3 == 0) {
-        // return "Fizz";
-        return '<span style="color: #ff0000">Fizz</span>';
+        return '<span class="fizz">Fizz</span>';
     }
     return num;
 }

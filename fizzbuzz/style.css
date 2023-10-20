@@ -3,6 +3,17 @@
     padding: 0;
     box-sizing: border-box;
     scrollbar-gutter: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+    --fizz: #FCBF49;
+    --buzz: #F77F00;
+    --fizz-buzz: #D62828;
+    --bg: #f7f7f8;
+    --text: #000000;
+    --darkBlue: #003049;
+    --cream: #EAE2B7;
 }
 
 ::-webkit-scrollbar {
@@ -25,11 +36,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 100vh;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 header h1 {
-    color: red;
+    color: var(--fizz-buzz);
+    font-size: 35px;
 }
 
 .container {
@@ -40,32 +55,70 @@ header h1 {
 
     max-width: 320px;
     padding: 20px;
-    background-color: aqua;
+    margin: 10px 0;
+    border-radius: 25px;
+
+    font-size: 14px;
+    background-color: var(--darkBlue);
+    color: white;
 }
 
 input[type=number] {
-    margin: 10px auto;
-    padding: 5px;
+    margin: 20px auto;
+    padding: 7px;
     border: none;
+    border-radius: 3px;
+    text-align: center;
+}
+
+input[type=number]:hover {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type=number]:focus {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
 }
 
 input[type=submit] {
-    background-color: yellow;
+    background-color: var(--buzz);
+    color: var(--cream);
+    font-weight: 700;
     padding: 10px;
     border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
 }
 
-input:hover {
-    background-color: red;
+input[type=submit]:hover {
+    background-color: var(--fizz-buzz);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    color: var(--cream);
 }
 
 #fizzbuzz {
-    border: 3px solid black;
     text-align: center;
-    padding: 15px;
-
-    height: 50vh;
+    padding-bottom: 15px;
+    max-height: 50vh;
     width: 80vw;
     max-width: 320px;
     overflow-y: auto;
+}
+
+#fizzbuzz p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.fizz-buzz {
+    color: var(--fizz-buzz)
+}
+
+.fizz {
+    color: var(--fizz);
+}
+
+.buzz {
+    color: var(--buzz);
 }

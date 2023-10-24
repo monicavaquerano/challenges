@@ -112,6 +112,10 @@ input[type=submit]:hover {
     font-weight: 700;
 }
 
+#text {
+    display: none;
+}
+
 .fizz-buzz {
     color: var(--fizz-buzz)
 }
@@ -125,11 +129,16 @@ input[type=submit]:hover {
 }
 
 /* Mobile */
-@media screen and (max-width:767px) and (orientation:landscape) {
+@media screen and (max-width:916px) and (orientation:landscape) {
     main {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
+
+    #text {
+        display: block;
+    }
+
 }

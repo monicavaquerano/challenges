@@ -1,4 +1,4 @@
-# Vanilla Tic Toc
+# Vanilla Tic Tac Toe
 
 ## Tech stack
 Tech used: HTML, CSS & JS

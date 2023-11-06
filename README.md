@@ -24,3 +24,6 @@
 
 * [Shopping List](/mobile-app) 
 => [Live Version](https://monicavaquerano.github.io/challenges/mobile-app/index.html)
+
+* [Fizzbuzz](/fizzbuzz) 
+=> [Live Version](https://monicavaquerano.github.io/challenges/fizzbuzz/index.html)

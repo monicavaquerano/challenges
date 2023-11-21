@@ -10,7 +10,7 @@ The goal of **FizzBuzz** is to print a sequence of numbers, but with a twist:
 * Otherwise, print the number itself.
 
 #### [Live version](https://monicavaquerano.github.io/challenges/fizzbuzz/index.html)
-![Task List image](https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/fizzbuzz.png)
+![Task List image](https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/projects/fizzbuzz.png)
 
 ## Tech stack
 Tech used: HTML, CSS & JS

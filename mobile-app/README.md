@@ -5,7 +5,7 @@
 Shopping List is a JavaScript-based program that allows users to quickly and easily make a shopping list. It uses a Firebase realtime database so it saves your list for later.
 <!-- Working on an authentication version -->
 #### [Live version](https://monicavaquerano.github.io/challenges/mobile-app/index.html)
-![Task List image](https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/shopping-list.png)
+![Task List image](https://github.com/monicavaquerano/monicavaquerano.github.io/blob/main/images/projects/shopping-list.png)
 
 ## Tech stack
 Tech used: HTML, CSS, JS & Firebase.
